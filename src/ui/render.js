@@ -20,11 +20,38 @@ export function renderCateg(arr) {
     console.log(categories);
     categories = [...new Set(categories)]
     console.log(categories);
-    categories = [...categories, 'összes']
+    //categories = [...categories, 'összes']
 
     const btnStr = categories.map(ctg => `
         <button>${ctg}</button>
         `).join('')
-    document.querySelector('header').innerHTML = btnStr
+    document.querySelector('header').innerHTML =`<button class = "activeBtn">összes</button>` + btnStr  
     
+    
+}
+
+export function renderFooter(arr) {
+
+    const totalResztvevo = arr.reduce((acc, obj) => obj.participants + acc, 0)
+    
+    const asd = arr.reduce((acc, obj) => obj.price + acc, 0)
+    const atlag = asd / arr.length
+
+    const bevetel = arr.reduce((acc, obj) => acc + obj.price * obj.participants, 0)
+
+    const totalindoor= arr.reduce((acc,obj)=>obj.indoor ? acc+1 : acc,0)
+    const totaloutdoor= arr.reduce((acc,obj)=>obj.indoor ? acc :acc+1,0)
+
+
+
+
+
+
+
+    document.querySelector('footer').innerHTML += `Összes résztvevők: ${totalResztvevo}   `
+    document.querySelector('footer').innerHTML += `Átlagos részvételi díj: ${atlag}   `
+    document.querySelector('footer').innerHTML += `jelenlegi bevétel: ${bevetel}   `
+    document.querySelector('footer').innerHTML += `Beltéri programok: ${totalindoor}   `
+    document.querySelector('footer').innerHTML += `Kültéri programok: ${totaloutdoor}`
+
 }

@@ -29,6 +29,7 @@ h1 {
   color: white;
   min-width: 300px;
   padding: 20px;
+  box-shadow: 10px;
 }
 
 h3 {
@@ -50,4 +51,29 @@ button {
   background-color: white;
   border-radius: 8px;
   font-size: 1.2rem;
+}
+
+.activeBtn {
+  background-color: rgb(81, 81, 211);
+  color: white;
+}
+
+footer {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 0 3px rgb(179, 164, 164);
+  padding: 1rem;
+  margin-top: 5rem;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+    width: 2rem;
+  height: 2rem;
+  cursor: pointer;
 }
